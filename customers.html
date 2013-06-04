@@ -1,0 +1,36 @@
+<div data-ng-controller="CustomerController">
+	<form id="myForm" name="MyForm" style="border:1px dashed white;padding:10px;width:20%;float:left;border-radius: 10px;background-color: rgb(120,185,40)">
+
+		<div class="control-group">
+			<label for="input1" class="control-label">Name</label>
+			<div class="controls" id=""><input type="text" name="name" id="input1" data-ng-model="user.name" required></div>
+		</div>
+
+		<div class="control-group">
+			<label for="input2" class="control-label">Email</label>
+			<div class="controls" id=""><input type="email" name="email" id="input2" data-ng-model="user.email" required></div>
+		</div>
+
+		<div class="control-group">
+			<label for="input3" class="control-label">City</label>
+			<div class="controls" id=""><input type="text" name="city" id="input3" data-ng-model="user.city" required></div>
+		</div>
+
+		<div class="control-group">
+	      <div class="controls">
+	        <button type="submit" class="btn" data-ng-click="addCustomer()">Register</button>
+	      </div>
+	    </div>
+
+	    <pre>{{message}}</pre>
+	</form>
+
+    <div data-ng-repeat="customer in customers">
+    	<div style="border:1px dashed white;float:left;padding:10px;margin:10px;border-radius:10px;background-color:rgb(120,185,40)">
+	    	<pre>Name:&nbsp;&nbsp;{{customer.name}}<br>Email:&nbsp;&nbsp;{{customer.email}}<br>City:&nbsp;&nbsp;{{customer.city}}
+	    	</pre>
+	    	<div class="btn" data-ng-click='deleteCustomer(customer.name)'>Delete</div>
+	    </div>
+    </div>
+</div>
+

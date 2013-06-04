@@ -1,0 +1,40 @@
+/*
+	Class	IT210
+	Project	HTML5 TicTacToe
+	File	tictactoe.css
+	Type	Cascading Style Sheets
+	Version	1.0
+	Date	16 November 2012
+	Author	Trevor Durán
+*/
+canvas {
+	border:1px solid black;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+}
+input[text] {
+	width:512px;
+}
+#content {
+	margin-left:auto;
+	margin-right:auto;
+}
+#chatLog{
+	padding:5px;
+	width:641px;
+	border:1px solid black;
+}
+#chatLog p {
+	margin:0;
+}
+.event {
+	color:#999;
+}
+.warning{
+	font-weight:bold;
+	color:#CCC;
+}
+#playground {
+	width:654px;
+}

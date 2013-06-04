@@ -1,0 +1,43 @@
+<!doctype html>
+<html data-ng-app="component"><!-- id='ng-app' needed for IE7 -->
+	<head>
+	</head>
+	<body>
+	    <div data-ng-controller="MyController" >
+	    	
+	    	<!--Angular Templates -->
+	    	<script type="text/ng-template" id="helloWorld.html">
+	    		<span>Hello World from inside my helloWorld tag</span>
+	    	</script>
+	    	
+		  <label>Name:</label>
+		  <input type="text" data-ng-model="yourName" placeholder="Enter a name here">
+		  <hr>
+		  <h1>Hello {{yourName}}!</h1>
+		  <h2>You're a {{silly}}.</h2>
+		  <br>
+		</div>
+		
+		<hr>
+		
+        <div id="testId" name="MyDiv">
+        	<hello-world></hello-world>
+    	</div>
+
+		<!-- ANGULAR FILES  <script src="http://code.angularjs.org/1.1.1/angular.min.js"></script> -->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="lib/angular.min.js"></script>
+		
+		<script src="js/script.js"></script>
+		<script>
+           var num = $("#testId").append("<p>One, Two, Three, Four</p>");
+           console.log($('#testId')[0].nodeName);
+			console.log(navigator.appCodeName);
+
+			myNamespace.myPublicFunction();
+			myNamespace.myPublicFunction();
+			document.write(myNamespace.myPublicVar);
+			myNamespace.testFunction();
+		</script>
+	</body>
+</html>
