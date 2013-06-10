@@ -16,8 +16,6 @@ angular.module('PositionApp', [])
         //      returns - position object w/ the top-left coordinates of the element
         //
         this.ofElement = function( elem, relativeTo ) {
-//console.log(id.offsetTop);
-            //if (typeof id === 'string') {
 
                 var parent,
                     win,
@@ -25,32 +23,40 @@ angular.module('PositionApp', [])
                     totalLeft,
                     count = 1;
 
-                //if (!(elem = document.getElementById(id)))
-                //    return null;
                 totalTop = elem.offsetTop;
                 totalLeft = elem.offsetLeft;
 
-                // Navigate the element's hierarchical tree
+                // Navigate the element's hierarchical tree, summing up the offsets
                 while ((elem = elem.offsetParent) &&
-                        elem !== document.body && 
+                        elem !== document.body &&
                         elem !== document.documentElement &&
                         count != relativeTo) {
-                    console.log(elem.offsetTop);
                     totalTop += elem.offsetTop;
                     totalLeft += elem.offsetLeft;
                     count++;
-                    //console.log(elem.offsetParent);
                 }
 
+                // Give position relative to what's on the screen
                 if (relativeTo == -1 && (win = elem.ownerDocument.defaultView)) {
                     totalTop -= win.scrollY;
                     totalLeft -= win.scrollX;
                 }
-                //console.log(totalTop+'  '+totalLeft);
-                return { top: totalTop, left: totalLeft };
 
-            //} else {
-            //    return { top: id.offsetTop, left: id.offsetLeft }
-            //}
+                return { top: totalTop, left: totalLeft };
+        };
+
+        this.mouseInElement = function( event, elemPosition) {
+
+            var myX, myY;
+
+            if ( event.clientX && elemPosition ) {      // Chrome, Firefox
+                myX = event.pageX - elemPosition.left;
+                myY = event.pageY - elemPosition.top;
+            } else if ( event.x ) {                     // IE
+                myX = event.x - elemPosition.left;
+                myY = event.y - elemPosition.top;
+            }
+
+            return { x: myX, y: myY };
         };
     })

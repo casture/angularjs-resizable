@@ -54,13 +54,6 @@ i:active {
 	width:300px;
 	height:300px;
 	border:1px solid black;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
 }
 
 #resize-second {
